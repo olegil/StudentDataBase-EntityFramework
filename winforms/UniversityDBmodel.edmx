@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="UniversityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="UniversityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Groups">
           <Key>
             <PropertyRef Name="Name" />
@@ -48,7 +48,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="UniversityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Groups">
+        <EntityType Name="Group">
           <Key>
             <PropertyRef Name="Name" />
           </Key>
@@ -56,7 +56,7 @@
           <Property Name="Specialisation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Students" Relationship="Self.FK_Student2Group" FromRole="Groups" ToRole="Students" />
         </EntityType>
-        <EntityType Name="Students">
+        <EntityType Name="Student">
           <Key>
             <PropertyRef Name="Number" />
           </Key>
@@ -66,11 +66,11 @@
           <Property Name="Number" Type="Int32" Nullable="false" />
           <Property Name="Avg_Grade" Type="Double" Nullable="false" />
           <Property Name="Budget" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Groups" Relationship="Self.FK_Student2Group" FromRole="Students" ToRole="Groups" />
+          <NavigationProperty Name="Group1" Relationship="Self.FK_Student2Group" FromRole="Students" ToRole="Groups" />
         </EntityType>
         <Association Name="FK_Student2Group">
-          <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
-          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <End Role="Groups" Type="Self.Group" Multiplicity="1" />
+          <End Role="Students" Type="Self.Student" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Groups">
               <PropertyRef Name="Name" />
@@ -80,9 +80,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="UniversityEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Groups" EntityType="Self.Groups" />
-          <EntitySet Name="Students" EntityType="Self.Students" />
+        <EntityContainer Name="UniversityEntitiesConnectionSettings" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Groups" EntityType="Self.Group" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
           <AssociationSet Name="FK_Student2Group" Association="Self.FK_Student2Group">
             <End Role="Groups" EntitySet="Groups" />
             <End Role="Students" EntitySet="Students" />
@@ -93,9 +93,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="UniversityModelStoreContainer" CdmEntityContainer="UniversityEntities">
+        <EntityContainerMapping StorageEntityContainer="UniversityModelStoreContainer" CdmEntityContainer="UniversityEntitiesConnectionSettings">
           <EntitySetMapping Name="Groups">
-            <EntityTypeMapping TypeName="UniversityModel.Groups">
+            <EntityTypeMapping TypeName="UniversityModel.Group">
               <MappingFragment StoreEntitySet="Groups">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Specialisation" ColumnName="Specialisation" />
@@ -103,7 +103,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Students">
-            <EntityTypeMapping TypeName="UniversityModel.Students">
+            <EntityTypeMapping TypeName="UniversityModel.Student">
               <MappingFragment StoreEntitySet="Students">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
@@ -128,9 +128,9 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

@@ -7,3 +7,5 @@ c:\users\mr pigeonhouse\documents\visual studio 2015\Projects\winforms\winforms\
 c:\users\mr pigeonhouse\documents\visual studio 2015\Projects\winforms\winforms\obj\Debug\winforms.pdb
 C:\Users\Mr Pigeonhouse\documents\visual studio 2015\Projects\winforms\winforms\obj\Debug\winforms.MainWindowForm.resources
 C:\Users\Mr Pigeonhouse\Documents\Visual Studio 2015\Projects\winforms\winforms\obj\Debug\winforms.csprojResolveAssemblyReference.cache
+C:\Users\Mr Pigeonhouse\documents\visual studio 2015\Projects\winforms\winforms\bin\Debug\EntityFramework.dll
+C:\Users\Mr Pigeonhouse\documents\visual studio 2015\Projects\winforms\winforms\bin\Debug\EntityFramework.xml

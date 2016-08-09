@@ -33,9 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,7 +55,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBconnect.cs" />
+    <Compile Include="ClassesModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClassesModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClassesModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClassesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccessLayer.cs" />
+    <Compile Include="Group.cs">
+      <DependentUpon>ClassesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Presenter.cs" />
     <Compile Include="Student database.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,7 +78,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Student.cs" />
+    <Compile Include="Student.cs">
+      <DependentUpon>ClassesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UniversityDBmodel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UniversityDBmodel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UniversityDBmodel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UniversityDBmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UniversityDBmodel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UniversityDBmodel.edmx</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Student database.resx">
       <DependentUpon>Student database.cs</DependentUpon>
     </EmbeddedResource>
@@ -69,6 +108,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -78,11 +118,43 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EntityDeploy Include="UniversityDBmodel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UniversityDBmodel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="UniversityDBmodel.edmx.diagram">
+      <DependentUpon>UniversityDBmodel.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClassesModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ClassesModel.Context.cs</LastGenOutput>
+      <DependentUpon>UniversityDBmodel.edmx</DependentUpon>
+    </Content>
+    <Content Include="ClassesModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ClassesModel.cs</LastGenOutput>
+      <DependentUpon>UniversityDBmodel.edmx</DependentUpon>
+    </Content>
+    <Content Include="UniversityDBmodel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UniversityDBmodel.edmx</DependentUpon>
+      <LastGenOutput>UniversityDBmodel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="UniversityDBmodel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UniversityDBmodel.edmx</DependentUpon>
+      <LastGenOutput>UniversityDBmodel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

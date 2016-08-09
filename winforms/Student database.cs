@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
-
 namespace winforms
 {
     public partial class MainWindowForm : Form
     {
-        DBconnect db = new DBconnect();
-        List<Student> StudentList;
         public MainWindowForm()
         {
             InitializeComponent();
@@ -45,19 +41,13 @@ namespace winforms
 
         private void MainWindowForm_Load(object sender, EventArgs e)
         {
-            db.sqlStudentsToList(out StudentList);
-            foreach (var student in StudentList)
-            {
-                StudentListBox.Items.Add(student._surname + student._name);
-            }
+            UniversityPresenter u = new UniversityPresenter();
+            u.PopulateList();
         }
 
         private void StudentList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            NameBox.Text = StudentList[StudentListBox.SelectedIndex]._name;
-            SurnameBox.Text = StudentList[StudentListBox.SelectedIndex]._surname;
-            NumberBox.Text = StudentList[StudentListBox.SelectedIndex]._number.ToString();
-            BudgetCheckBox.Checked = StudentList[StudentListBox.SelectedIndex]._onBudget;
+
         }
     }
 }

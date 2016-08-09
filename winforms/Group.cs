@@ -12,15 +12,16 @@ namespace winforms
     using System;
     using System.Collections.Generic;
     
-    public partial class Student
+    public partial class Group
     {
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Group { get; set; }
-        public int Number { get; set; }
-        public double Avg_Grade { get; set; }
-        public bool Budget { get; set; }
+        public Group()
+        {
+            this.Students = new HashSet<Student>();
+        }
     
-        public virtual Group Group1 { get; set; }
+        public string Name { get; set; }
+        public string Specialisation { get; set; }
+    
+        public virtual ICollection<Student> Students { get; set; }
     }
 }
