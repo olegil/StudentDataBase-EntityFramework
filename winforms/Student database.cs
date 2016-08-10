@@ -1,14 +1,24 @@
 ﻿using System;
 using System.Windows.Forms;
+
 namespace winforms
 {
     public partial class MainWindowForm : Form
     {
+        #region Load
         public MainWindowForm()
         {
             InitializeComponent();
         }
 
+        private void MainWindowForm_Load(object sender, EventArgs e)
+        {
+            UniversityPresenter.PopulateList(StudentListBox);
+            ListRefreshTimer();
+        }
+        #endregion
+
+        #region Buttons
         private void DeleteClick(object sender, EventArgs e)
         {
 
@@ -38,16 +48,29 @@ namespace winforms
         {
 
         }
+        #endregion
 
-        private void MainWindowForm_Load(object sender, EventArgs e)
+        #region Form refresh and index changes
+        private void timer_Tick(object sender, EventArgs e)
         {
-            UniversityPresenter u = new UniversityPresenter();
-            u.PopulateList();
+            int temp = StudentListBox.SelectedIndex;
+            UniversityPresenter.PopulateList(StudentListBox);
+            StudentListBox.SelectedIndex = temp;
         }
 
         private void StudentList_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            UniversityPresenter.PopulateFields(NameBox, SurnameBox, GroupListPop, NumberBox, BudgetCheckBox, StudentListBox.SelectedIndex);
         }
+
+        private void ListRefreshTimer()
+        {
+            Timer timer = new Timer();
+            timer.Interval = (10 * 1000); // 10 secs
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Start();
+        }
+        #endregion
+
     }
 }

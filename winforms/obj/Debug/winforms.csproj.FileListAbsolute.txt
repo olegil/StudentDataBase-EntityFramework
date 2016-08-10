@@ -9,3 +9,14 @@ C:\Users\Mr Pigeonhouse\documents\visual studio 2015\Projects\winforms\winforms\
 C:\Users\Mr Pigeonhouse\Documents\Visual Studio 2015\Projects\winforms\winforms\obj\Debug\winforms.csprojResolveAssemblyReference.cache
 C:\Users\Mr Pigeonhouse\documents\visual studio 2015\Projects\winforms\winforms\bin\Debug\EntityFramework.dll
 C:\Users\Mr Pigeonhouse\documents\visual studio 2015\Projects\winforms\winforms\bin\Debug\EntityFramework.xml
+C:\Users\astrumwolfe\Documents\GitHub\StudentDataBase-EntityFramework\winforms\bin\Debug\winforms.exe.config
+C:\Users\astrumwolfe\Documents\GitHub\StudentDataBase-EntityFramework\winforms\obj\Debug\winforms.exe
+C:\Users\astrumwolfe\Documents\GitHub\StudentDataBase-EntityFramework\winforms\obj\Debug\winforms.pdb
+C:\Users\astrumwolfe\Documents\GitHub\StudentDataBase-EntityFramework\winforms\bin\Debug\winforms.exe
+C:\Users\astrumwolfe\Documents\GitHub\StudentDataBase-EntityFramework\winforms\bin\Debug\winforms.pdb
+C:\Users\astrumwolfe\Documents\GitHub\StudentDataBase-EntityFramework\winforms\bin\Debug\EntityFramework.dll
+C:\Users\astrumwolfe\Documents\GitHub\StudentDataBase-EntityFramework\winforms\bin\Debug\EntityFramework.xml
+C:\Users\astrumwolfe\Documents\GitHub\StudentDataBase-EntityFramework\winforms\obj\Debug\winforms.csprojResolveAssemblyReference.cache
+C:\Users\astrumwolfe\Documents\GitHub\StudentDataBase-EntityFramework\winforms\obj\Debug\winforms.MainWindowForm.resources
+C:\Users\astrumwolfe\Documents\GitHub\StudentDataBase-EntityFramework\winforms\obj\Debug\winforms.Properties.Resources.resources
+C:\Users\astrumwolfe\Documents\GitHub\StudentDataBase-EntityFramework\winforms\obj\Debug\winforms.csproj.GenerateResource.Cache

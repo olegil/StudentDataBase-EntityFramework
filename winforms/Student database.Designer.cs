@@ -247,7 +247,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.SurnameBox);
             this.Controls.Add(this.NameBox);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "MainWindowForm";
             this.Text = "Student database";
             this.Load += new System.EventHandler(this.MainWindowForm_Load);
