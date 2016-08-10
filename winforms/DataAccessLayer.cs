@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Data;
 using System.Windows.Forms;
 
 namespace winforms
@@ -41,20 +42,20 @@ namespace winforms
             return groupList;
         }
 
-        static public void InsertNewStudent(Student s)
+        static public void InsertNewStudent(Student stud)
         {
             using (var db = new UniversityEntitiesConnectionSettings())
             {
                 bool exception = false;
                 try
                 {
-                    db.Students.Add(s);
+                    db.Students.Add(stud);
                     db.SaveChanges();
                 }
                 catch (Exception e)
                 {
                     exception = true;
-                    MessageBox.Show("Cannot insert student, check student number for duplicates or ask administrator.");
+                    MessageBox.Show("Cannot insert student, check student number for duplicates or ask administrator. \n Error: {0}", e.Message);
                 }
                 if (!exception)
                 {
@@ -62,8 +63,66 @@ namespace winforms
                 }
             }
         }
-        static public void UpdateStudent() { }
-        static public void DeleteStudent() { }
+
+        static public void UpdateStudent(Student stud)
+        {
+            using (var db = new UniversityEntitiesConnectionSettings())
+            {
+                bool exception = false;
+                try
+                {
+                    var query = from s in db.Students
+                                where s.Number == stud.Number
+                                select s;
+                    foreach (var s in query)
+                    {
+                        s.Avg_Grade = stud.Avg_Grade;
+                        s.Group = stud.Group;
+                        s.Budget = stud.Budget;
+                        s.Name = stud.Name;
+                        s.Surname = stud.Surname;
+                    }
+                    db.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    exception = true;
+                    MessageBox.Show("Student update failed, check input, or contact administrator. \n Error: {0}", e.Message);
+                }
+                if (!exception)
+                {
+                    MessageBox.Show("Student updated successfuly");
+                }
+            }
+        }
+
+        static public void DeleteStudent(int number)
+        {
+            using (var db = new UniversityEntitiesConnectionSettings())
+            {
+                bool exception = false;
+                try
+                {
+                    var query = from s in db.Students
+                    where s.Number == number
+                    select s;
+                foreach (var s in query)
+                {
+                    db.Students.Remove(s);
+                }
+                db.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    exception = true;
+                    MessageBox.Show("Error deleting student, make sure u selected student or contact administrator. \n Error: {0}", e.Message);
+                }
+                if (!exception)
+                {
+                    MessageBox.Show("Student deleted successfuly");
+                }
+            }
+        }
 
         static public void InsertNewGroup() { }
         static public void UpdateGroup() { }

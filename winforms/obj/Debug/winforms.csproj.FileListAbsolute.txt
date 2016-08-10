@@ -21,3 +21,15 @@ C:\Users\astrumwolfe\Documents\GitHub\StudentDataBase-EntityFramework\winforms\o
 C:\Users\astrumwolfe\Documents\GitHub\StudentDataBase-EntityFramework\winforms\obj\Debug\winforms.Properties.Resources.resources
 C:\Users\astrumwolfe\Documents\GitHub\StudentDataBase-EntityFramework\winforms\obj\Debug\winforms.csproj.GenerateResource.Cache
 C:\Users\astrumwolfe\Documents\GitHub\StudentDataBase-EntityFramework\winforms\obj\Debug\winforms.Student_window.resources
+C:\Users\Mr Pigeonhouse\Documents\GitHub\StudentDataBase-EntityFramework\winforms\bin\Debug\winforms.exe.config
+C:\Users\Mr Pigeonhouse\Documents\GitHub\StudentDataBase-EntityFramework\winforms\obj\Debug\winforms.exe
+C:\Users\Mr Pigeonhouse\Documents\GitHub\StudentDataBase-EntityFramework\winforms\obj\Debug\winforms.pdb
+C:\Users\Mr Pigeonhouse\Documents\GitHub\StudentDataBase-EntityFramework\winforms\bin\Debug\winforms.exe
+C:\Users\Mr Pigeonhouse\Documents\GitHub\StudentDataBase-EntityFramework\winforms\bin\Debug\winforms.pdb
+C:\Users\Mr Pigeonhouse\Documents\GitHub\StudentDataBase-EntityFramework\winforms\bin\Debug\EntityFramework.dll
+C:\Users\Mr Pigeonhouse\Documents\GitHub\StudentDataBase-EntityFramework\winforms\bin\Debug\EntityFramework.xml
+C:\Users\Mr Pigeonhouse\Documents\GitHub\StudentDataBase-EntityFramework\winforms\obj\Debug\winforms.csprojResolveAssemblyReference.cache
+C:\Users\Mr Pigeonhouse\Documents\GitHub\StudentDataBase-EntityFramework\winforms\obj\Debug\winforms.MainWindowForm.resources
+C:\Users\Mr Pigeonhouse\Documents\GitHub\StudentDataBase-EntityFramework\winforms\obj\Debug\winforms.Properties.Resources.resources
+C:\Users\Mr Pigeonhouse\Documents\GitHub\StudentDataBase-EntityFramework\winforms\obj\Debug\winforms.Student_window.resources
+C:\Users\Mr Pigeonhouse\Documents\GitHub\StudentDataBase-EntityFramework\winforms\obj\Debug\winforms.csproj.GenerateResource.Cache

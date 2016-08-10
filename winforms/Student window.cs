@@ -32,7 +32,7 @@ namespace winforms
         private void CancelButton_Click(object sender, EventArgs e)
         {
             MainWindowForm.student_window_open = false;
-            Close();
+            ActiveForm.Close();
         }
 
         private void Student_window_FormClosing(object sender, FormClosingEventArgs e)
