@@ -20,3 +20,4 @@ C:\Users\astrumwolfe\Documents\GitHub\StudentDataBase-EntityFramework\winforms\o
 C:\Users\astrumwolfe\Documents\GitHub\StudentDataBase-EntityFramework\winforms\obj\Debug\winforms.MainWindowForm.resources
 C:\Users\astrumwolfe\Documents\GitHub\StudentDataBase-EntityFramework\winforms\obj\Debug\winforms.Properties.Resources.resources
 C:\Users\astrumwolfe\Documents\GitHub\StudentDataBase-EntityFramework\winforms\obj\Debug\winforms.csproj.GenerateResource.Cache
+C:\Users\astrumwolfe\Documents\GitHub\StudentDataBase-EntityFramework\winforms\obj\Debug\winforms.Student_window.resources

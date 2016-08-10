@@ -5,7 +5,9 @@ namespace winforms
 {
     public partial class MainWindowForm : Form
     {
-        #region Load
+        public static bool student_window_open;
+        public static bool group_window_open;
+
         public MainWindowForm()
         {
             InitializeComponent();
@@ -16,25 +18,48 @@ namespace winforms
             UniversityPresenter.PopulateList(StudentListBox);
             ListRefreshTimer();
         }
-        #endregion
 
-        #region Buttons
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            int temp = StudentListBox.SelectedIndex;
+            UniversityPresenter.PopulateList(StudentListBox);
+            StudentListBox.SelectedIndex = temp;
+        }
+
+        private void StudentList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UniversityPresenter.PopulateFields(NameBox, SurnameBox, NumberBox, BudgetCheckBox, StudentListBox.SelectedIndex);
+            UniversityPresenter.PopulateGroupComboBox(GroupListPop, StudentListBox.SelectedIndex);
+        }
+
+        private void ListRefreshTimer()
+        {
+            Timer timer = new Timer();
+            timer.Interval = (10 * 1000); // 10 secs
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Start();
+        }
+
+        private void CreateStudentClick(object sender, EventArgs e)
+        {
+            if (student_window_open == false)
+            {
+                Form form = new Student_window();
+                form.Show();
+            }
+        }
+
+        private void ManageGroupsClick(object sender, EventArgs e)
+        {
+
+        }
+
         private void DeleteClick(object sender, EventArgs e)
         {
 
         }
 
         private void SaveAllClick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CreateStudentClick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ManageGroupsClick(object sender, EventArgs e)
         {
 
         }
@@ -48,29 +73,6 @@ namespace winforms
         {
 
         }
-        #endregion
-
-        #region Form refresh and index changes
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            int temp = StudentListBox.SelectedIndex;
-            UniversityPresenter.PopulateList(StudentListBox);
-            StudentListBox.SelectedIndex = temp;
-        }
-
-        private void StudentList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            UniversityPresenter.PopulateFields(NameBox, SurnameBox, GroupListPop, NumberBox, BudgetCheckBox, StudentListBox.SelectedIndex);
-        }
-
-        private void ListRefreshTimer()
-        {
-            Timer timer = new Timer();
-            timer.Interval = (10 * 1000); // 10 secs
-            timer.Tick += new EventHandler(timer_Tick);
-            timer.Start();
-        }
-        #endregion
 
     }
 }

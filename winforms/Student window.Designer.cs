@@ -184,6 +184,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Student_window";
             this.Text = "Create student";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Student_window_FormClosing);
             this.Load += new System.EventHandler(this.Student_window_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace winforms
 {
@@ -38,7 +41,27 @@ namespace winforms
             return groupList;
         }
 
-        static public void InsertNewStudent() { }
+        static public void InsertNewStudent(Student s)
+        {
+            using (var db = new UniversityEntitiesConnectionSettings())
+            {
+                bool exception = false;
+                try
+                {
+                    db.Students.Add(s);
+                    db.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    exception = true;
+                    MessageBox.Show("Cannot insert student, check student number for duplicates or ask administrator.");
+                }
+                if (!exception)
+                {
+                    MessageBox.Show("Student inserted!");
+                }
+            }
+        }
         static public void UpdateStudent() { }
         static public void DeleteStudent() { }
 
